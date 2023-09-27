@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for jek in object_list %}
+<div>
+  <h2><a href="{% url 'jek_detail' jek.pk %}">{{ jek.title }}</a></h2>
+  <p>{{ jek.body }}</p>
+</div>
+{% endfor %}
+{% endblock content %}
