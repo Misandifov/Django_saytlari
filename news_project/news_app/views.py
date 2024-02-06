@@ -79,7 +79,7 @@ class HomePageVie(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
-        context['news_list'] = News.published.all().order_by('-publish_time')[:6]
+        context['news_list'] = News.published.all().order_by('-publish_time')[:5]
         context['mahalliy_xabarlar'] = News.published.all().filter(category__name='Mahalliy').order_by('-publish_time')[:10]
         context['xorij_xabarlari'] = News.published.all().filter(category__name='Xorij').order_by('-publish_time')[:10]
         context['sport_xabarlari'] = News.published.all().filter(category__name='Sport').order_by('-publish_time')[:10]
