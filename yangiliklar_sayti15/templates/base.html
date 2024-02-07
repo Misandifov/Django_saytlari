@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}base.html{% endblock title %}</title>
+</head>
+<body>
+<p><a href="{% url 'article_create' %}">Yangi maqola</a></p>
+{% if user.is_authenticated %}
+<p>{{ user.username }}, saytga xushkelibsiz</p>
+<a href="{% url 'logout' %}">Logout</a>
+<a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+{% else %}
+<p>Siz saytga kirmagansiz!</p>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+<main>
+{% block content %}
+
+{% endblock content %}
+</main>
+</body>
+</html>

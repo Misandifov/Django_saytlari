@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Barcha maqolalar{% endblock title %}
+
+{% block content %}
+{% for maqolalar in object_list %}
+<a href="{% url 'article_detail' maqolalar.pk %}">
+<h2>{{ maqolalar.title }}</h2>
+</a>
+{{ maqolalar.author }} tomonidan yozildi | {{ maqolalar.date }}<br>
+{{ maqolalar.body }}<br>
+<a href="{% url 'article_edit' maqolalar.pk %}">Tahrirlash</a> |
+<a href="{% url 'article_delete' maqolalar.pk %}">O'chirish</a>
+{% endfor %}
+{% endblock content %}
